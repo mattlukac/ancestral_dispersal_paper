@@ -25,32 +25,32 @@
 %\date{} 					% Or removing it
 
 \author{{Matt Lukac} \\
-	Institute for Ecology and Evolution\\
-	Department of Biology\\
-	University of Oregon\\
-	\texttt{mlukac@uoregon.edu} \\
-	%% examples of more authors
-	\And
-	{Peter Ralph} \\
-	Institute for Ecology and Evolution\\
-	Department of Biology\\
-	University of Oregon\\
-	\texttt{plr@uoregon.edu} \\
-	%% \AND
-	%% Coauthor \\
-	%% Affiliation \\
-	%% Address \\
-	%% \texttt{email} \\
-	%% \And
-	%% Coauthor \\
-	%% Affiliation \\
-	%% Address \\
-	%% \texttt{email} \\
-	%% \And
-	%% Coauthor \\
-	%% Affiliation \\
-	%% Address \\
-	%% \texttt{email} \\
+Institute for Ecology and Evolution\\
+Department of Biology\\
+University of Oregon\\
+\texttt{mlukac@uoregon.edu} \\
+%% examples of more authors
+\And
+{Peter Ralph} \\
+Institute for Ecology and Evolution\\
+Department of Biology\\
+University of Oregon\\
+\texttt{plr@uoregon.edu} \\
+%% \AND
+%% Coauthor \\
+%% Affiliation \\
+%% Address \\
+%% \texttt{email} \\
+%% \And
+%% Coauthor \\
+%% Affiliation \\
+%% Address \\
+%% \texttt{email} \\
+%% \And
+%% Coauthor \\
+%% Affiliation \\
+%% Address \\
+%% \texttt{email} \\
 }
 
 % Uncomment to remove the date
@@ -65,152 +65,139 @@
 %%% Once the PDF is generated, you can check the metadata with
 %%% $ pdfinfo template.pdf
 \hypersetup{
-	pdftitle={ancestral dispersal},
-	pdfsubject={popgen},
-	pdfauthor={Matt Lukac},
-	pdfkeywords={coalescent, hitting times, diffusion},
+pdftitle={ancestral dispersal},
+pdfsubject={popgen},
+pdfauthor={Matt Lukac},
+pdfkeywords={coalescent, hitting times, diffusion},
 }
 
 \begin{document}
-	\maketitle
-	
-	\begin{abstract}
-		Patterns of isolation by distance (IBD) can be shaped by
-		the movements of a population's genetic ancestors.
-		Here, we model pairwise mean coalescent time as a function of space
-		and use spatiogenetic data to approximate the reverse time
-		dispersal of lineages through space.
-		We use an advection-diffusion model for the spatial coalescent process
-		and efficiently compute gradients from the adjoint state equation.
-		Model fit is assessed with a ground-truth parameter values, 
-		as well as forward time spatial simulations.
-		We then fit the model to North American ground beetle data
-		and discuss implications.
-	\end{abstract}
-	
-	
-	% keywords can be removed
-	\keywords{coalescent \and hitting times \and diffusion \and landscape genetics \and constrained optimization}
-	
-	
-	\section{Introduction}
-	\begin{itemize}
-		\item describe forwards process, dispersal, mu, sigma
-		\item why do mu, sigma vary with space?
-		\item contrast IBD plot to spatial dxy heatmap
-		\item in reality mu != 0 and sigma is not constant
-		\item other spatial inference methods (MAPS, EEMS, circuitscape)
-		\item other sigma inference methods using Wright-Malecot (ask Chris)
-		\item inference target is in infinite dimensional function space (stands out from existing methods)
-	\end{itemize}
-	
-	\section{Methods}
-	\begin{itemize}
-		\item Wright-Malecot as solution to 1D landscape problem
-		\item talk about reverse time process
-		\item segue to general PDE
-		\item explain loss function, constrained optimization
-		\item Lagrangian?
-		\item adjoint method takes O(1) solves, direct method takes O(N) solves
-		\item fenics, finite elements (arbitrary meshes, has function space framework)
-		\item hot to apply to empirical data
-		\item validation slimulations
-		\item mesh convergence, gradient validation
-	\end{itemize}
+\maketitle
 
-	\section{Results}
-	\begin{itemize}
-		\item fit to slim sims 
-		\item figs with synthetic and slim data fits
-		\item empirical data (beetles, other?)
-	\end{itemize}
-	
-	\section{Discussion}
-	\begin{itemize}
-		\item implications and thoughts on sampling design
-		\item uncertainty
-		\item dxy along genome, or locus specific
-		\item interpret reverse time results to forward time
-		\item non steady-state model
-	\end{itemize}
-	
-	%\paragraph{Paragraph}
-	
-	\section{Examples of citations, figures, tables, references}
-	\label{sec:others}
-	
-	\subsection{Citations}
-	Citations use \verb+natbib+. The documentation may be found at
-	\begin{center}
-		\url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
-	\end{center}
-	
-	Here is an example usage of the two main commands (\verb+citet+ and \verb+citep+): Some people thought a thing \citep{kour2014real, hadash2018estimate} but other people thought something else \citep{kour2014fast}. Many people have speculated that if we knew exactly why \citet{kour2014fast} thought this\dots
-	
-	\subsection{Figures}
-	See Figure \ref{fig:fig1}. Here is how you add footnotes. \footnote{Sample of the first footnote.}
-	
-	\begin{figure}
-		\centering
-		\fbox{\rule[-.5cm]{4cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
-		\caption{Sample figure caption.}
-		\label{fig:fig1}
-	\end{figure}
-	
-	\subsection{Tables}
-	See awesome Table~\ref{tab:table}.
-	
-	The documentation for \verb+booktabs+ (`Publication quality tables in LaTeX') is available from:
-	\begin{center}
-		\url{https://www.ctan.org/pkg/booktabs}
-	\end{center}
-	
-	
-	\begin{table}
-		\caption{Sample table title}
-		\centering
-		\begin{tabular}{lll}
-			\toprule
-			\multicolumn{2}{c}{Part}                   \\
-			\cmidrule(r){1-2}
-			Name     & Description     & Size ($\mu$m) \\
-			\midrule
-			Dendrite & Input terminal  & $\sim$100     \\
-			Axon     & Output terminal & $\sim$10      \\
-			Soma     & Cell body       & up to $10^6$  \\
-			\bottomrule
-		\end{tabular}
-		\label{tab:table}
-	\end{table}
-	
-	
-	\bibliographystyle{unsrtnat}
-	\bibliography{references}  %%% Uncomment this line and comment out the ``thebibliography'' section below to use the external .bib file (using bibtex) .
-	
-	
-	%%% Uncomment this section and comment out the \bibliography{references} line above to use inline references.
-	% \begin{thebibliography}{1}
-		
-		% 	\bibitem{kour2014real}
-		% 	George Kour and Raid Saabne.
-		% 	\newblock Real-time segmentation of on-line handwritten arabic script.
-		% 	\newblock In {\em Frontiers in Handwriting Recognition (ICFHR), 2014 14th
-			% 			International Conference on}, pages 417--422. IEEE, 2014.
-		
-		% 	\bibitem{kour2014fast}
-		% 	George Kour and Raid Saabne.
-		% 	\newblock Fast classification of handwritten on-line arabic characters.
-		% 	\newblock In {\em Soft Computing and Pattern Recognition (SoCPaR), 2014 6th
-			% 			International Conference of}, pages 312--318. IEEE, 2014.
-		
-		% 	\bibitem{hadash2018estimate}
-		% 	Guy Hadash, Einat Kermany, Boaz Carmeli, Ofer Lavi, George Kour, and Alon
-		% 	Jacovi.
-		% 	\newblock Estimate and replace: A novel approach to integrating deep neural
-		% 	networks with existing applications.
-		% 	\newblock {\em arXiv preprint arXiv:1804.09028}, 2018.
-		
-		% \end{thebibliography}
-	
-	
+\begin{abstract}
+	Patterns of isolation by distance (IBD) can be shaped by
+	the movements of a population's genetic ancestors.
+	Here, we model pairwise mean coalescent time as a function of space
+	and use spatiogenetic data to approximate the reverse time
+	dispersal of lineages through space.
+	We use an advection-diffusion model for the spatial coalescent process
+	and efficiently compute gradients from the adjoint state equation.
+	Model fit is assessed with a ground-truth parameter values,
+	as well as forward time spatial simulations.
+	We then fit the model to North American ground beetle data
+	and discuss implications.
+\end{abstract}
+
+
+% keywords can be removed
+\keywords{coalescent \and hitting times \and diffusion \and landscape genetics \and constrained optimization}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+% \begin{itemize}
+%     \item describe forwards process, dispersal, mu, sigma
+%     \item why do mu, sigma vary with space?
+%     \item contrast IBD plot to spatial dxy heatmap
+%     \item in reality mu != 0 and sigma is not constant
+%     \item other spatial inference methods (MAPS, EEMS, circuitscape)
+%     \item other sigma inference methods using Wright-Malecot (ask Chris)
+%     \item inference target is in infinite dimensional function space (stands out from existing methods)
+% \end{itemize}
+
+The way in which organisms disperse across a landscape
+forms a fundamental part of a species' demography.
+Do offspring live near to their parents or far?
+Where do the parents tend to live relative to each other?
+Is there preferential movement in particular directions?
+These questions are as relevant to plants as to the more motile organisms
+that often carry the plants' seeds or pollen.
+We may be interested in the answers to understand
+sharing of genetic diversity
+or to predict population persistance
+(a species living in a remnant fragment of good habitat
+is in trouble if most offspring leave the fragment)
+Of course, the most conceptually straightforward way to understand organism movement
+is to directly observe it.
+However, this is less straightforward in practice:
+even when it is feasible to directly observe movement or parentage,
+it can require a tremendous amount of effort to reach statistically useful sample sizes.
+
+To complement direct observation of natural history,
+we might then turn to population genetic data.
+Since two individuals are nearly always related through a huge number of distinct
+paths through the species' pedigree,
+even a handful of genomes potentially provides information, albeit diffuse,
+about a large number of parent-offspring relationships.
+The field has long used patterns of genetic diversity to estimate various quantities
+by fitting mechanistic models of discrete populations.
+It is our goal in this paper to do the same, for continuous space.
+
+Organisms live across real landscapes, and for most species
+the realities of spatial habitat heterogeneity and sheer geographical separation
+are very important factors in the dynamics of their populations.
+We are concerned here with those quantities that determine
+how genetic relatedness assorts across geography:
+the displacement between parent and child, i.e., ``dispersal''.
+(The displacement to \emph{which} parent?
+It depends -- in the case of autosomally inherited genetic material,
+we consider the displacment to a uniformly randomly chosen parent.)
+Concretely, we may model the spatial displacement between parent and offspring
+as a random quantity with some distribution;
+here, we aim to infer its mean and (co)variance,
+while allowing these to vary with spatial position.
+For instance, pollen movement may tend to be biased downwind,
+and have a higher variance in the direction of the prevailing wind.
+Offspring may preferentially move towards better habitat
+(or may preferentially remain there once arrived).
+Certain habitat types may be more conducive to movement,
+and so create ``corridors'' where thin strips of such habitat exist.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\section{Methods}
+
+\begin{itemize}
+    \item Wright-Malecot as solution to 1D landscape problem
+    \item talk about reverse time process
+    \item segue to general PDE
+    \item explain loss function, constrained optimization
+    \item Lagrangian?
+    \item adjoint method takes O(1) solves, direct method takes O(N) solves
+    \item fenics, finite elements (arbitrary meshes, has function space framework)
+    \item hot to apply to empirical data
+    \item validation slimulations
+    \item mesh convergence, gradient validation
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+
+\begin{itemize}
+    \item fit to slim sims
+    \item figs with synthetic and slim data fits
+    \item empirical data (beetles, other?)
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion}
+
+\begin{itemize}
+    \item implications and thoughts on sampling design
+    \item uncertainty
+    \item dxy along genome, or locus specific
+    \item interpret reverse time results to forward time
+    \item non steady-state model
+\end{itemize}
+
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+
 \end{document}
